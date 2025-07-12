@@ -20,5 +20,5 @@ steps:
       pwd
       file_path=${pwd}/${target_file_name}
       echo $file_path
-      azcopy copy $file_path 'https://pramit46.dfs.core.windows.net/schema/schema' --recursive
+      ./azcopy copy $file_path 'https://pramit46.dfs.core.windows.net/schema/schema' --recursive
     
