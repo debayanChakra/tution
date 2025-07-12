@@ -18,7 +18,7 @@ steps:
       fi
 
       echo "Cloning test branch..."
-      git clone -b test https://github.com/debayanChakra/tution.git
+      git clone -b main https://github.com/debayanChakra/tution.git
 
       echo "Listing contents..."
       ls -la tution
