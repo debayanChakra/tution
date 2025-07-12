@@ -8,6 +8,7 @@ pool:
 steps:
   - checkout: none 
   - script: |
+      target_file_name="schema.json"
       if [ -d "tution" ]; then
         echo "Removing existing tution directory"
         rm -rf tution
@@ -17,3 +18,7 @@ steps:
       cd tution
       ls -la
       pwd
+      file_path=${pwd}/${target_file_name}
+      echo $file_path
+      azcopy copy $file_path 'https://pramit46.dfs.core.windows.net/schema/schema' --recursive
+    
