@@ -23,19 +23,16 @@ steps:
       echo "Listing contents..."
       ls -la tution
     displayName: Clone repo and list schema file
+  - script: |
+      echo "Installing AzCopy..."
+      wget https://aka.ms/downloadazcopy-v10-linux -O azcopy.tar.gz
+      tar -xf azcopy.tar.gz
+      AZCOPY_DIR=$(find . -type d -name "azcopy_linux*")
+      sudo cp "$AZCOPY_DIR/azcopy" /usr/local/bin/
+      azcopy --version
+    displayName: Install AzCopy
 
-  - task: AzureCLI@2
-    inputs:
-      azureSubscription: 'My Azure Subscription(1)(3b68346a-fedc-44aa-b468-2b9ca87bb141)'
-      scriptType: 'bash'
-      scriptLocation: 'inlineScript'
-      inlineScript: |
-        az storage blob upload \
-                  --account-name pramit46 \
-                  --container-name  schema \
-                  --name schema/schema.json \
-                  --file ./tution/schema.json \
-                  --auth-mode login
+  
 
 
 
