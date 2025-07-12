@@ -8,5 +8,10 @@ pool:
   name: 'vstsvm-pool'
 
 steps:
+  - checkout: none 
+
+steps:
   - script: |
-      git branch
+      git clone https://github.com/debayanChakra/tution.git
+      git checkout -b test
+      ls -la
