@@ -8,6 +8,10 @@ pool:
 steps:
   - checkout: none 
   - script: |
+      if [ -d "tution" ]; then
+        echo "Removing existing tution directory"
+        rm -rf tution
+      fi
       git clone https://github.com/debayanChakra/tution.git
       git checkout -b test
       cd tution
