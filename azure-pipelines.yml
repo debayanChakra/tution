@@ -9,7 +9,4 @@ pool:
 
 steps:
   - script: |
-      git checkout test
-      echo "Now on branch: $(git branch --show-current)"
-      git pull origin test
-      ls -la
+      git branch
