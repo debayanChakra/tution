@@ -11,8 +11,8 @@ steps:
       if [ -d "tution" ]; then
         echo "Removing existing tution directory"
         rm -rf tution
+        ls -la
       fi
-      git clone https://github.com/debayanChakra/tution.git
-      git checkout -b test
+      git clone -b test https://github.com/debayanChakra/tution.git
       cd tution
       ls -la
