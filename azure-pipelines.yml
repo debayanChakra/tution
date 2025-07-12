@@ -20,5 +20,12 @@ steps:
       pwd
       file_path=${pwd}/${target_file_name}
       echo $file_path
-      ./azcopy copy $file_path 'https://pramit46.dfs.core.windows.net/schema/schema' --recursive
+      az storage blob upload \
+        --account-name  pramit46\
+        --container-name  schema\
+        --name /schema/schema.json \
+        --file  $file_path\
+        --auth-mode key \
+        --account-key "1RPWtYkx2kgXfPEb7EEja/TdLtXPWMIL1/sdRoi9E2t0xigDAu0w7GZNbppwSRlrMCxwDuQEQN4p+AStWNqxFQ=="
+
     
