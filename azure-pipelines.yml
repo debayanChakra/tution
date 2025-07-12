@@ -32,7 +32,7 @@ steps:
       azcopy --version
     displayName: Install AzCopy
   - script: |
-        azcopy copy 'tution/schema.json' 'https://pramit46.dfs.core.windows.net/schema/schema/schema.json?1RPWtYkx2kgXfPEb7EEja/TdLtXPWMIL1/sdRoi9E2t0xigDAu0w7GZNbppwSRlrMCxwDuQEQN4p+AStWNqxFQ==' --recursive=true
+        azcopy copy 'tution/schema.json' 'https://pramit46.dfs.core.windows.net/schema/schema/schema.json?sv=2024-11-04&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2025-07-12T20:15:25Z&st=2025-07-12T12:15:25Z&spr=https&sig=0IZAmfPXmkpuBMraJUXWrcjUfO1myrZc3xqkcowBaUE%3D' --recursive=true
 
   
 
