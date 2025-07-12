@@ -14,18 +14,19 @@ steps:
         rm -rf tution
         ls -la
       fi
+
       git clone -b test https://github.com/debayanChakra/tution.git
       cd tution
       ls -la
       pwd
       file_path=${pwd}/${target_file_name}
       echo $file_path
-      az storage blob upload \
-        --account-name  pramit46\
-        --container-name  schema\
-        --name /schema/schema.json \
-        --file  $file_path\
-        --auth-mode key \
-        --account-key "1RPWtYkx2kgXfPEb7EEja/TdLtXPWMIL1/sdRoi9E2t0xigDAu0w7GZNbppwSRlrMCxwDuQEQN4p+AStWNqxFQ=="
-
-    
+      - task: AzureFileCopy@6
+        inputs:
+          SourcePath: 'schema.json'
+          azureSubscription: 'My Azure Subscription(1)(3b68346a-fedc-44aa-b468-2b9ca87bb141)'
+          Destination: 'AzureBlob'
+          storage: 'pramit46'
+          ContainerName: 'schema'
+          BlobPrefix: 'schema/'
+      
