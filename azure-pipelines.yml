@@ -2,31 +2,33 @@ trigger:
   branches:
     include:
       - main
+
 pool:
   name: 'vstsvm-pool'
 
 steps:
-  - checkout: none 
+  - checkout: none
+
   - script: |
       target_file_name="schema.json"
       if [ -d "tution" ]; then
         echo "Removing existing tution directory"
         rm -rf tution
-        ls -la
       fi
 
+      echo "Cloning test branch..."
       git clone -b test https://github.com/debayanChakra/tution.git
-      cd tution
-      ls -la
-      pwd
-      file_path=${pwd}/${target_file_name}
-      echo $file_path
-      - task: AzureFileCopy@6
-        inputs:
-          SourcePath: 'schema.json'
-          azureSubscription: 'My Azure Subscription(1)(3b68346a-fedc-44aa-b468-2b9ca87bb141)'
-          Destination: 'AzureBlob'
-          storage: 'pramit46'
-          ContainerName: 'schema'
-          BlobPrefix: 'schema/'
-      
+
+      echo "Listing contents..."
+      ls -la tution
+    displayName: Clone repo and list schema file
+
+  - task: AzureFileCopy@6
+    inputs:
+      SourcePath: 'tution/schema.json' 
+      azureSubscription: 'My Azure Subscription(1)(3b68346a-fedc-44aa-b468-2b9ca87bb141)'
+      Destination: 'AzureBlob'
+      storage: 'pramit46'
+      ContainerName: 'schema'
+      BlobPrefix: 'schema/'
+    displayName: Upload schema.json to Blob container
