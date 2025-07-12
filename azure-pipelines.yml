@@ -8,4 +8,8 @@ pool:
   name: 'vstsvm-pool'
 
 steps:
-  - script: ls -a
+  - script: |
+      git checkout test
+      echo "Now on branch: $(git branch --show-current)"
+      git pull origin test
+      ls -la
