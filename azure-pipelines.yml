@@ -23,7 +23,7 @@ steps:
       ls -la tution
     displayName: Clone repo and list schema file
 
-  - task: AzureFileCopy@6
+  - task: AzureFileCopy@2
     inputs:
       SourcePath: 'tution/schema.json' 
       azureSubscription: 'My Azure Subscription(1)(3b68346a-fedc-44aa-b468-2b9ca87bb141)'
