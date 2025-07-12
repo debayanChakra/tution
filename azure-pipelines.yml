@@ -16,3 +16,4 @@ steps:
       git clone -b test https://github.com/debayanChakra/tution.git
       cd tution
       ls -la
+      pwd
