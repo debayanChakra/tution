@@ -1,8 +1,11 @@
 trigger:
-  - main
+  branches:
+    include:
+      - test
+
 
 pool:
   name: 'vstsvm-pool'
 
 steps:
-  - script: echo "Hello from GitHub main branch"
+  - script: ls -a
