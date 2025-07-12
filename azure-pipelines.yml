@@ -1,9 +1,7 @@
 trigger:
   branches:
     include:
-      - test
-
-
+      - main
 pool:
   name: 'vstsvm-pool'
 
@@ -12,4 +10,5 @@ steps:
   - script: |
       git clone https://github.com/debayanChakra/tution.git
       git checkout -b test
+      cd tution
       ls -la
