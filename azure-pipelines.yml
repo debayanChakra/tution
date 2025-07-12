@@ -2,7 +2,7 @@ trigger:
 
   branches:
     include:
-      - test
+      - main
 
 pool:
   name: 'vstsvm-pool'
