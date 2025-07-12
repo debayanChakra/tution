@@ -31,6 +31,8 @@ steps:
       sudo cp "$AZCOPY_DIR/azcopy" /usr/local/bin/
       azcopy --version
     displayName: Install AzCopy
+  - script: |
+        ./azcopy copy $file_path 'https://pramit46.dfs.core.windows.net/schema/schema?1RPWtYkx2kgXfPEb7EEja/TdLtXPWMIL1/sdRoi9E2t0xigDAu0w7GZNbppwSRlrMCxwDuQEQN4p+AStWNqxFQ==' --recursive=true
 
   
 
